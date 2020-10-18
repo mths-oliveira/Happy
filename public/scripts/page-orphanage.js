@@ -44,3 +44,25 @@ function selectImage(event) {
 
   button.classList.add("active");
 }
+
+const buttons = document.querySelectorAll(".images button");
+const imageContainer = document.querySelector(".orphanage-details > img");
+
+let i = 0;
+let interval = setInterval(() => {
+  for (button of buttons) {
+    button.classList.remove("active");
+  }
+  buttons[i].classList.add("active");
+
+  let image = buttons[i].children[0];
+  imageContainer.src = image.src;
+
+  i++;
+
+  if (i == 6) {
+    i = 0;
+  }
+}, 2000);
+
+
